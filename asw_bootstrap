@@ -1,0 +1,27 @@
+#!/bin/bash
+echo "----------START----------"
+yum -y update
+yum -y install httpd
+echo "
+<html>
+<body>
+        <h3>I Had A Poodle</h3>
+                <p>I had a little poodle</p>
+                <p>His coat was silver grey</p>
+                <p>One day I thought I'd bathe him</p>
+                <p>To wash the dirt away.</p>
+                <p>I washed my little poodle</p>
+                <p>Then dried him with a towel.</p>
+                <p>My poodle seemed to like his bath</p>
+                <p>He didn't even growl.</p>
+                <p class="red">RUFF RUFF RUFF!</p>
+        <div class="footer">Hello from Aleksei</div>
+</body>
+
+</html>" > /var/www/html/index.html
+service httpd start
+chkconfig httpd on
+cat iamisabsent.txt
+echo "UserData executed on S(Date)" >> /var/www/html/log.txt
+echo "----------FINISH----------"
+
